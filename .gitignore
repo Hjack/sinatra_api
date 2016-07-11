@@ -1,3 +1,5 @@
 log/*
 config/newrelic.yml
 lib/key.rb
+*.txt
+*.log
