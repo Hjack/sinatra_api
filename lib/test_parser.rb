@@ -1,7 +1,7 @@
 require 'json'
 require 'net/http'
 require 'yaml'
-require './key'
+require '/Users/hakimujackson/Documents/scribble_apps/sinatra_api/lib/key'
 
 # uri = URI("https://api.nasa.gov/neo/rest/v1/feed?start_date=2016-07-01&end_date=2016-07-08&api_key=#{api_key}")
 # data = Net::HTTP.get(uri)
@@ -26,7 +26,7 @@ def test_parser
 	end
 end
 
-puts test_parser
+# puts test_parser
 # puts parsed_data.class
 # puts parsed_data["near_earth_objects"]["2016-07-03"][0]["name"]
 # puts parsed_data["near_earth_objects"]["2016-07-03"][0]["close_approach_data"][0]["relative_velocity"]
