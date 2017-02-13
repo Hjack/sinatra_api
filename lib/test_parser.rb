@@ -8,7 +8,7 @@ require '/Users/hakimujackson/Documents/scribble_apps/sinatra_api/lib/key'
 # parsed_data = JSON.parse(data)
 
 def api_parser
-	uri = URI("https://api.nasa.gov/neo/rest/v1/feed?start_date=2016-07-01&end_date=2016-07-08&api_key=#{api_key}")
+	uri = URI("https://api.nasa.gov/neo/rest/v1/feed?start_date=2017-01-01&end_date=2017-01-08&api_key=#{api_key}")
   data = Net::HTTP.get(uri)
   parsed_data = JSON.parse(data)
 end

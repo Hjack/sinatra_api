@@ -11,6 +11,6 @@ parsed_data = JSON.parse(data)
 # puts parsed_data
 # puts parsed_data["element_count"]
 puts parsed_data.class
-puts parsed_data["near_earth_objects"]["2016-07-03"][0]["name"]
-puts parsed_data["near_earth_objects"]["2016-07-03"][0]["close_approach_data"][0]["relative_velocity"]
-puts parsed_data["near_earth_objects"]["2016-07-03"][0]["estimated_diameter"]
+puts parsed_data["near_earth_objects"]["2016-07-07"][0]["name"]
+puts parsed_data["near_earth_objects"]["2016-07-07"][0]["close_approach_data"][0]["relative_velocity"]
+puts parsed_data["near_earth_objects"]["2016-07-07"][0]["estimated_diameter"]
