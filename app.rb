@@ -3,13 +3,13 @@ require 'shotgun'
 require 'sinatra'
 
 get '/' do
-	"Hello"
+	erb :home
 end
 
 get '/api' do
-	test_parser[0].to_s
+	@start = params[:start_date]
+	@end = params[:end_date]
+	@parsed_data = test_parser[0].to_s
+	erb :api
 end
 
-get '/test_api' do
-  erb :home
-end
