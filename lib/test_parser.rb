@@ -7,24 +7,37 @@ require '/Users/hakimujackson/Documents/scribble_apps/sinatra_api/lib/key'
 # data = Net::HTTP.get(uri)
 # parsed_data = JSON.parse(data)
 
-def api_parser
-	uri = URI("https://api.nasa.gov/neo/rest/v1/feed?start_date=2017-01-01&end_date=2017-01-08&api_key=#{api_key}")
-  data = Net::HTTP.get(uri)
-  parsed_data = JSON.parse(data)
-end
+class API
 
-# parsed_data = api_parser
+	def initialize(start_of_date, end_of_date)
+		@starting = start_of_date
+		@ending = end_of_date
+	end
 
-# The stuff in the testing_logs.logs file is from foo["near_earth_objects"]
+	attr_accessor :start_of_date, :end_of_date
 
-# I believe this method returns all "close_approach_data" I need to see why puts returns more arrays than what's shows when I puts test_parser.count
-def test_parser
-	api_parser["near_earth_objects"].map do |key,value|
-		value.map do |array|
-		  array["close_approach_data"]
+	def api_parser
+		# uri = URI("https://api.nasa.gov/neo/rest/v1/feed?start_date=2017-01-01&end_date=2017-01-08&api_key=#{api_key}")
+		uri = URI("https://api.nasa.gov/neo/rest/v1/feed?start_date=#{@starting}&end_date=#{@ending}&api_key=#{api_key}")
+	  data = Net::HTTP.get(uri)
+	  parsed_data = JSON.parse(data)
+	end
+
+	# parsed_data = api_parser
+
+	# The stuff in the testing_logs.logs file is from foo["near_earth_objects"]
+
+	# I believe this method returns all "close_approach_data" I need to see why puts returns more arrays than what's shows when I puts test_parser.count
+	def test_parser
+		api_parser["near_earth_objects"].map do |key,value|
+			value.map do |array|
+			  array["close_approach_data"]
+			end
 		end
 	end
+
 end
+
 
 # puts test_parser
 # puts parsed_data.class

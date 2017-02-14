@@ -9,7 +9,7 @@ end
 get '/api' do
 	@start = params[:start_date]
 	@end = params[:end_date]
-	@parsed_data = test_parser[0].to_s
+	@parsed_data = API.new(@start,@end).test_parser[0].to_s
 	erb :api
 end
 
